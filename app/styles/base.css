@@ -1,0 +1,232 @@
+/* ==========================================================================
+   Sensoriarte — hoja de estilos
+   Sistema: "Calma táctil". Fondo lino-lavanda, tinta ciruela, una sola
+   acción violeta. Titulares Fraunces (eje SOFT), cuerpo Atkinson Hyperlegible.
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --lino: #f6f3f9;
+  --lino-2: #efeaf5;
+  --tinta: #2e2a45;
+  --tinta-2: #5b5674;
+  --tinta-3: #8b86a3;
+  --linea: #e2dbec;
+  --blanco: #ffffff;
+  --ciruela: #5a4ba8;
+  --ciruela-2: #4a3d91;
+  --ciruela-claro: #e9e4f7;
+  --salvia: #a9cdb9;
+  --arcilla: #e8b4b8;
+  --cielo: #b8cbe6;
+  --whatsapp: #1e7f5b;
+  --whatsapp-2: #176a4b;
+
+  /* Tipografía */
+  --f-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+
+  --t-xs: 0.8125rem;
+  --t-sm: 0.9375rem;
+  --t-base: 1.0625rem;
+  --t-lg: 1.25rem;
+  --t-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --t-2xl: clamp(2rem, 1.4rem + 2.2vw, 3rem);
+  --t-hero: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+
+  /* Espacio y forma */
+  --ancho: 1120px;
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2rem;
+  --s-5: 3rem;
+  --s-6: 4.5rem;
+  --s-seccion: clamp(4rem, 3rem + 4vw, 7rem);
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 24px;
+  --r-pill: 999px;
+  --sombra: 0 1px 2px rgba(46, 42, 69, 0.06), 0 10px 30px rgba(46, 42, 69, 0.07);
+
+  --dur: 220ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Modo "menos estímulos": sin texturas, sin movimiento, acentos más planos */
+html.calmo {
+  --salvia: #cfdad4;
+  --arcilla: #e5d3d5;
+  --cielo: #d3dbe8;
+  --dur: 0ms;
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html.calmo {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background: var(--lino);
+  color: var(--tinta);
+  font-family: var(--f-body);
+  font-size: var(--t-base);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--f-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--t-hero);
+  font-optical-sizing: auto;
+}
+h2 {
+  font-size: var(--t-2xl);
+}
+h3 {
+  font-size: var(--t-xl);
+}
+
+p {
+  margin: 0;
+  max-width: 62ch;
+}
+
+a {
+  color: var(--ciruela);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1.5px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ciruela);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+.contenedor {
+  width: min(100% - 2.5rem, var(--ancho));
+  margin-inline: auto;
+}
+
+.seccion {
+  padding-block: var(--s-seccion);
+}
+
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Botones
+   -------------------------------------------------------------------------- */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--r-pill);
+  border: 2px solid transparent;
+  font-weight: 700;
+  font-size: var(--t-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+.boton:active {
+  transform: translateY(1px);
+}
+
+.boton--primario {
+  background: var(--ciruela);
+  color: var(--blanco);
+}
+.boton--primario:hover {
+  background: var(--ciruela-2);
+}
+
+.boton--secundario {
+  background: transparent;
+  color: var(--tinta);
+  border-color: var(--tinta);
+}
+.boton--secundario:hover {
+  background: var(--blanco);
+}
+
+.boton--whatsapp {
+  background: var(--whatsapp);
+  color: var(--blanco);
+}
+.boton--whatsapp:hover {
+  background: var(--whatsapp-2);
+}
+
+.boton--bloque {
+  width: 100%;
+}
+
+.icono {
+  width: 1.15em;
+  height: 1.15em;
+  flex: none;
+}

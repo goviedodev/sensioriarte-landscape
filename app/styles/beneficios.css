@@ -1,0 +1,93 @@
+/* --------------------------------------------------------------------------
+   Beneficios: lista editorial con reglas, no tarjetas
+   -------------------------------------------------------------------------- */
+.beneficios {
+  background: var(--blanco);
+  border-block: 1px solid var(--linea);
+}
+
+.beneficios__grid {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.beneficios__intro h2 {
+  margin-bottom: var(--s-2);
+  max-width: 18ch;
+}
+.beneficios__intro p {
+  color: var(--tinta-2);
+}
+
+.beneficio {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+  gap: var(--s-3);
+  padding-block: var(--s-4);
+  border-top: 1px solid var(--linea);
+}
+.beneficio:last-child {
+  border-bottom: 1px solid var(--linea);
+}
+.beneficio h3 {
+  font-size: var(--t-lg);
+  font-family: var(--f-body);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.beneficio p {
+  color: var(--tinta-2);
+  font-size: var(--t-sm);
+}
+
+/* Muestras táctiles dibujadas en CSS */
+.muestra {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--r-md);
+  border: 1px solid var(--linea);
+  background-color: var(--lino-2);
+}
+.muestra--peso {
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 7px,
+    rgba(46, 42, 69, 0.12) 7px 9px
+  );
+  background-color: var(--cielo);
+}
+.muestra--click {
+  background-image: radial-gradient(
+    circle,
+    var(--blanco) 0 3px,
+    transparent 3.5px
+  );
+  background-size: 11px 11px;
+  background-position: 3px 3px;
+  background-color: var(--arcilla);
+}
+.muestra--textura {
+  background-image: radial-gradient(
+    circle at 40% 35%,
+    rgba(255, 255, 255, 0.85) 0 2px,
+    rgba(46, 42, 69, 0.18) 3px 4px,
+    transparent 4.5px
+  );
+  background-size: 13px 13px;
+  background-color: var(--salvia);
+}
+html.calmo .muestra {
+  background-image: none;
+}
+
+@media (min-width: 880px) {
+  .beneficios__grid {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--s-6);
+  }
+  .beneficios__intro {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+  }
+}

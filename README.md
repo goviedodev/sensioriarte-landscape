@@ -1,109 +1,37 @@
-# Welcome to React Router + Cloudflare Workers!
+# Sensoriarte
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/react-router-starter-template)
+Landing de Sensoriarte, tienda de juguetes y material sensorial en Limache, Región de Valparaíso.
+Construida con [React Router 7](https://reactrouter.com/) en modo SSR sobre [Cloudflare Workers](https://developers.cloudflare.com/workers/).
 
-![React Router Starter Template Preview](https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/bfdc2f85-e5c9-4c92-128b-3a6711249800/public)
-
-<!-- dash-content-start -->
-
-A modern, production-ready template for building full-stack React applications using [React Router](https://reactrouter.com/) and the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/).
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-- 🔎 Built-in Observability to monitor your Worker
-<!-- dash-content-end -->
-
-## Getting Started
-
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+## Comandos
 
 ```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/react-router-starter-template
+npm install        # dependencias
+npm run dev        # desarrollo con HMR en http://localhost:5173
+npm test           # pruebas unitarias (Vitest)
+npm run typecheck  # genera tipos y corre tsc
+npm run build      # build de producción en build/
+npm run preview    # build + vista previa sobre workerd
+npm run deploy     # publica en Cloudflare Workers
 ```
 
-A live public deployment of this template is available at [https://react-router-starter-template.templates.workers.dev](https://react-router-starter-template.templates.workers.dev)
+## Estructura
 
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
+```
+app/
+├── routes/home.tsx      # única ruta: arma la página con los componentes
+├── components/          # una sección por archivo (Cabecera, Hero, Catálogo, ...)
+├── data/contenido.ts    # textos editables: beneficios, categorías, comunas, producto destacado
+├── lib/                 # lógica pura con pruebas: enlaces de WhatsApp, estado del pop-it
+├── hooks/useCalmo.ts    # modo "menos estímulos" (persistente en localStorage)
+├── styles/              # CSS del sistema visual, un archivo por sección
+└── images/              # fotos de la tienda (Vite las versiona)
+public/img/              # imágenes servidas tal cual, ej. llavero-clicker.jpg
+workers/app.ts           # entrada del Worker
 ```
 
-### Development
+## Pendientes antes de publicar
 
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Typegen
-
-Generate types for your Cloudflare bindings in `wrangler.json`:
-
-```sh
-npm run typegen
-```
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Previewing the Production Build
-
-Preview the production build locally:
-
-```bash
-npm run preview
-```
-
-## Deployment
-
-If you don't have a Cloudflare account, [create one here](https://dash.cloudflare.com/sign-up)! Go to your [Workers dashboard](https://dash.cloudflare.com/?to=%2F%3Aaccount%2Fworkers-and-pages) to see your [free custom Cloudflare Workers subdomain](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/) on `*.workers.dev`.
-
-Once that's done, you can build your app:
-
-```sh
-npm run build
-```
-
-And deploy it:
-
-```sh
-npm run deploy
-```
-
-To deploy a preview URL:
-
-```sh
-npx wrangler versions upload
-```
-
-You can then promote a version to production after verification or roll it out progressively.
-
-```sh
-npx wrangler versions deploy
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+- Reemplazar `NUMERO_WHATSAPP` en `app/lib/whatsapp.ts` por el número real.
+- Guardar la foto del llavero clicker en `public/img/llavero-clicker.jpg`.
+- Completar la dirección de la tienda en `app/components/Ubicacion.tsx`.

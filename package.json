@@ -1,18 +1,6 @@
 {
-	"name": "sensioriarte-landscape",
-	"description": "Build a full-stack web application with React Router 7.",
-	"cloudflare": {
-		"label": "React Router Framework Starter",
-		"products": [
-			"Workers"
-		],
-		"categories": [
-			"storage"
-		],
-		"preview_icon_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/36a99c4a-8919-4e6e-ac9e-e55974407200/public",
-		"preview_image_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/65455e96-7992-425f-44e4-30f3e7d7f900/preview",
-		"publish": true
-	},
+	"name": "sensoriarte",
+	"description": "Landing de Sensoriarte, tienda de material sensorial en Limache. React Router 7 sobre Cloudflare Workers.",
 	"dependencies": {
 		"isbot": "5.1.32",
 		"react": "19.2.1",
@@ -30,6 +18,7 @@
 		"typescript": "5.9.3",
 		"vite": "^7.0.0",
 		"vite-tsconfig-paths": "5.1.4",
+		"vitest": "^3.2.7",
 		"wrangler": "4.127.0"
 	},
 	"private": true,
@@ -40,7 +29,10 @@
 		"deploy": "wrangler deploy",
 		"dev": "react-router dev",
 		"preview": "npm run build && vite preview",
-		"typecheck": "npm run typegen && tsc -b"
+		"typecheck": "npm run typegen && tsc -b",
+		"test": "vitest run",
+		"test:coverage": "vitest run --coverage",
+		"typegen": "wrangler types && react-router typegen"
 	},
 	"type": "module"
 }

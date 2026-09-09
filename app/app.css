@@ -1,16 +1,10 @@
 @import "tailwindcss" source(".");
 
-@theme {
-	--font-sans:
-		"Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
-html,
-body {
-	@apply bg-white dark:bg-gray-950;
-
-	@media (prefers-color-scheme: dark) {
-		color-scheme: dark;
-	}
-}
+/* Sistema visual de Sensoriarte. Sin capas: gana sobre el preflight de Tailwind. */
+@import "./styles/base.css";
+@import "./styles/cabecera.css";
+@import "./styles/hero.css";
+@import "./styles/beneficios.css";
+@import "./styles/catalogo.css";
+@import "./styles/profesionales.css";
+@import "./styles/ubicacion.css";

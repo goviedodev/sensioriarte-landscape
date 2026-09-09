@@ -1,0 +1,143 @@
+/* --------------------------------------------------------------------------
+   Ubicación
+   -------------------------------------------------------------------------- */
+.fotos {
+  display: grid;
+  gap: var(--s-2);
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 879px) {
+  .hero .fotos {
+    order: 2;
+  }
+  .hero .popit {
+    order: 3;
+  }
+}
+.foto {
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--linea);
+  background: var(--blanco);
+  box-shadow: var(--sombra);
+}
+.foto img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.fotos__pie {
+  grid-column: 1 / -1;
+  font-size: var(--t-sm);
+  color: var(--tinta-2);
+  max-width: 62ch;
+}
+html.calmo .foto img {
+  filter: saturate(0.65);
+}
+
+@media (min-width: 700px) {
+  .fotos {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-3);
+  }
+}
+
+.ubicacion__grid {
+  display: grid;
+  gap: var(--s-4);
+}
+.ubicacion h2 {
+  max-width: 16ch;
+  margin-bottom: var(--s-2);
+}
+.ubicacion__texto {
+  color: var(--tinta-2);
+  margin-bottom: var(--s-3);
+}
+
+.comunas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--s-4);
+}
+.comunas li {
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--r-pill);
+  background: var(--blanco);
+  border: 1px solid var(--linea);
+  font-size: var(--t-sm);
+}
+.comunas li:first-child {
+  background: var(--ciruela-claro);
+  border-color: var(--ciruela);
+  font-weight: 700;
+}
+
+.datos {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+}
+.datos div {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+.datos dt {
+  font-weight: 700;
+  min-width: 6.5rem;
+}
+.datos dd {
+  margin: 0;
+  color: var(--tinta-2);
+}
+
+.asesoria {
+  background: var(--blanco);
+  border: 1px solid var(--linea);
+  border-radius: var(--r-lg);
+  padding: var(--s-4);
+  box-shadow: var(--sombra);
+}
+.asesoria h3 {
+  font-size: var(--t-xl);
+  margin-bottom: 0.6rem;
+}
+.asesoria p {
+  color: var(--tinta-2);
+  margin-bottom: var(--s-3);
+}
+
+@media (min-width: 880px) {
+  .ubicacion__grid {
+    grid-template-columns: 7fr 5fr;
+    gap: var(--s-6);
+    align-items: start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Pie
+   -------------------------------------------------------------------------- */
+.pie {
+  border-top: 1px solid var(--linea);
+  padding-block: var(--s-4);
+  font-size: var(--t-sm);
+  color: var(--tinta-2);
+}
+.pie__fila {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+.pie a {
+  color: var(--tinta-2);
+}
